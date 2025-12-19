@@ -17,15 +17,67 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agência Gênios | Design, Sistemas e Identidade Visual",
+  metadataBase: new URL("https://agenciagenios.com"),
+  title: {
+    default: "Agência Gênios | Design, Sistemas e Identidade Visual",
+    template: "%s | Agência Gênios",
+  },
   description: "Transforme sua marca com a Agência Gênios. Especialistas em Identidade Visual, Apps, Design Gráfico e Edição de Vídeo. Design minimalista e alta performance.",
-  keywords: ["Agência de Publicidade", "Design Gráfico", "Criação de Apps", "Identidade Visual", "Gravação Aérea", "SEO", "Agência Digital"],
+  keywords: [
+    "Agência de Publicidade",
+    "Design Gráfico",
+    "Criação de Apps",
+    "Identidade Visual",
+    "Gravação Aérea",
+    "SEO",
+    "Agência Digital",
+    "Sistemas Web",
+    "Marketing Digital",
+  ],
+  authors: [{ name: "Agência Gênios" }],
+  creator: "Agência Gênios",
+  publisher: "Agência Gênios",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-      title: "Agência Gênios",
-      description: "Do conceito à inovação. Transformamos ideias em realidade digital.",
-      type: "website",
-      locale: "pt_BR",
-  }
+    title: "Agência Gênios | Design, Sistemas e Identidade Visual",
+    description: "Do conceito à inovação. Transformamos ideias em realidade digital com design premium e tecnologia de ponta.",
+    url: "https://agenciagenios.com",
+    siteName: "Agência Gênios",
+    images: [
+      {
+        url: "/og-image.jpg", // Make sure to create this image or update path
+        width: 1200,
+        height: 630,
+        alt: "Agência Gênios - Transformando Ideias em Realidade",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agência Gênios",
+    description: "Do conceito à inovação. Transformamos ideias em realidade digital.",
+    images: ["/og-image.jpg"], // Reusing OG image for consistency
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

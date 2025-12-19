@@ -9,6 +9,33 @@ export function generateStaticParams() {
   }));
 }
 
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+
+  if (!project) {
+    return {
+      title: "Projeto não encontrado",
+    };
+  }
+
+  return {
+    title: `${project.title} | Portfólio`,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: project.images || [],
+    },
+  };
+}
+
 export default async function ProjectPage({
   params,
 }: {
