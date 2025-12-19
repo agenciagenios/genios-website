@@ -6,39 +6,51 @@ import { ExternalLink, Tag } from "lucide-react";
 
 const apps = [
   {
-    title: "Genius CRM",
-    description: "Gestão completa de relacionamento com o cliente. Automatize leads, vendas e suporte em uma única plataforma intuitiva.",
-    tags: ["SaaS", "Produtividade", "Vendas"],
+    title: "GeekNote",
+    description: "Aplicativo para organização de orçamentos de forma dinâmica e outras funções úteis.",
+    tags: ["Mobile", "APP"],
     imageColor: "bg-blue-600",
-    link: "#"
+    link: "https://geeknote.expo.app",
   },
   {
-    title: "EcoTrack",
-    description: "Monitoramento ambiental em tempo real para empresas sustentáveis. Dashboards dinâmicos e alertas inteligentes.",
-    tags: ["Mobile App", "IoT", "Verde"],
+    title: "Gênios Clientes",
+    description: "Aplicativo de celular para você nosso cliente ter seu histórico de contratos, serviços e alertas úteis.",
+    tags: ["Mobile", "APP"],
+    imageColor: "bg-blue-600",
+    link: "#",
+    inDevelopment: true
+  },
+  {
+    title: "GêniosChat",
+    description: "Sistema de chatbot e multi-atendimento para empresas de qualquer porte. Faça campanhas, automatize com fluxos, tenha agentes de IA e muito mais.",
+    tags: ["IA", "Chatbot", "Multi-Atendimento"],
+    imageColor: "bg-blue-600",
+    link: "#",
+    inDevelopment: true
+  },
+  {
+    title: "Desfory",
+    description: "Plataforma de venda de arquivos digitais, focado em design gráfico.",
+    tags: ["E-commerce", "Arq. Digitais", "Design"],
     imageColor: "bg-green-600",
-    link: "#"
+    link: "#",
+    inDevelopment: true
   },
   {
-    title: "FinFlow",
-    description: "Controle financeiro empresarial simplificado. Emissão de notas, conciliação bancária e relatórios fiscais.",
-    tags: ["Fintech", "Web System", "Financeiro"],
+    title: "TicketPRO",
+    description: "Sistema completo para gestão de eventos e tickets.",
+    tags: ["Eventos", "Tickets", "Gestão"],
     imageColor: "bg-purple-600",
-    link: "#"
+    link: "#",
+    inDevelopment: true
   },
   {
-    title: "TaskMaster Pro",
-    description: "Gerenciador de tarefas colaborativo para equipes de alta performance. Kanban, Gantt e Chat integrado.",
-    tags: ["Gestão", "Colaboração", "SaaS"],
+    title: "SingleByte",
+    description: "E-commerce de produtos de tecnologia.",
+    tags: ["E-commerce", "Produtos", "Tecnologia"],
     imageColor: "bg-orange-600",
-    link: "#"
-  },
-  {
-    title: "HealthConnect",
-    description: "App de telemedicina que conecta pacientes a especialistas. Agendamento, vídeo-chamada e prontuário eletrônico.",
-    tags: ["Saúde", "Telemedicina", "App"],
-    imageColor: "bg-cyan-600",
-    link: "#"
+    link: "#",
+    inDevelopment: true
   }
 ];
 
