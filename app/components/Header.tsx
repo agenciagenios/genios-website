@@ -5,6 +5,14 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  { name: "Serviços", href: "/servicos" },
+  { name: "Portfólio", href: "/portfolio" },
+  { name: "Planos", href: "/planos" },
+  { name: "Sobre", href: "/sobre" },
+  { name: "Contato", href: "/#contato" },
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,31 +41,23 @@ export default function Header() {
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-            Agência <span className="text-blue-500">Gênios</span>
+            Agência <span className="text-yellow-500">Gênios</span>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {["Serviços", "Portfólio", "Sobre", "Contato"].map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.name}
+                href={item.href}
                 className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-                onClick={(e) => {
-                   e.preventDefault();
-                   document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
-                }}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
             <Link
-              href="#contato"
+              href="/#contato"
               className="px-5 py-2 text-sm font-medium text-white bg-white/10 rounded-full hover:bg-white/20 transition-all border border-white/10"
-              onClick={(e) => {
-                   e.preventDefault();
-                   document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               Orçamento
             </Link>
@@ -80,14 +80,14 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-20 left-6 right-6 p-6 rounded-2xl glass bg-black/90 border-white/10 flex flex-col gap-4"
         >
-          {["Serviços", "Portfólio", "Sobre", "Contato"].map((item) => (
+          {navItems.map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.name}
+              href={item.href}
               className="text-lg font-medium text-zinc-300 hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              {item}
+              {item.name}
             </Link>
           ))}
         </motion.div>

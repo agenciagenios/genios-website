@@ -15,7 +15,7 @@ export default function Portfolio() {
         <div className="container px-6 mx-auto">
             <div className="mb-16">
                 <h2 className="text-4xl font-bold text-white mb-4">Trabalhos Recentes</h2>
-                <div className="h-1 w-20 bg-blue-500 rounded-full"/>
+                <div className="h-1 w-20 bg-yellow-500 rounded-full"/>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -38,7 +38,7 @@ export default function Portfolio() {
             </div>
             
              <div className="text-center mt-12">
-                <button className="text-white border-b border-blue-500 pb-1 hover:text-blue-400 transition-colors">Ver todos os projetos</button>
+                <button className="text-white border-b border-yellow-500 pb-1 hover:text-blue-400 transition-colors">Ver todos os projetos</button>
             </div>
         </div>
     </section>
