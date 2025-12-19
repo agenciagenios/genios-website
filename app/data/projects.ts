@@ -1,7 +1,7 @@
 export const projects = [
   { 
     id: "neon-future",
-    title: "Neon Future App", 
+    title: "AAA", 
     category: "App Development", 
     color: "bg-yellow-600",
     description: "Um aplicativo revolucionário de fintech que redefiniu a maneira como a Gen Z interage com investimentos.",
@@ -10,7 +10,7 @@ export const projects = [
   },
   { 
     id: "zenith-brand",
-    title: "Zenith Brand", 
+    title: "BBB", 
     category: "Identidade Visual", 
     color: "bg-purple-600",
     description: "Rebranding completo para uma marca de moda de luxo, trazendo minimalismo e sofisticação.",
@@ -19,7 +19,7 @@ export const projects = [
   },
   { 
     id: "alpha-drone",
-    title: "Alpha Drone", 
+    title: "CCC", 
     category: "Gravação Aérea", 
     color: "bg-indigo-600",
     description: "Cobertura aérea 4K para um dos maiores eventos corporativos de São Paulo.",

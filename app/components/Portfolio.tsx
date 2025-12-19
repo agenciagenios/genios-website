@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 
+// TO-DO PEGAR DINAMICO DO DATA
 const projects = [
-  { title: "Neon Future App", category: "App Development", color: "bg-yellow-600" },
-  { title: "Zenith Brand", category: "Identidade Visual", color: "bg-purple-600" },
-  { title: "Alpha Drone", category: "Gravação Aérea", color: "bg-indigo-600" },
-  { title: "Flow Motion", category: "Motion Graphics", color: "bg-pink-600" },
+  { title: "AAA", category: "App Development", color: "bg-yellow-600" },
+  { title: "BBB", category: "Identidade Visual", color: "bg-purple-600" },
+  { title: "CCC", category: "Gravação Aérea", color: "bg-indigo-600" },
+  { title: "DDD", category: "Motion Graphics", color: "bg-pink-600" },
 ];
 
 export default function Portfolio() {
