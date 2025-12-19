@@ -2,8 +2,30 @@
 
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    service: "Identidade Visual",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, service, message } = formData;
+    
+    const text = `*Novo Contato via Site*\n\n*Nome:* ${name}\n*Serviço:* ${service}\n*Mensagem:* ${message}`;
+    const encodedText = encodeURIComponent(text);
+    const phoneNumber = "5568992253537";
+    
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <section id="contato" className="py-32 relative overflow-hidden">
       {/* Background Decor */}
@@ -53,28 +75,28 @@ export default function Contact() {
             viewport={{ once: true }}
             className="lg:w-1/2 w-full"
           >
-            <form className="glass-card p-8 md:p-10 rounded-3xl space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10 rounded-3xl space-y-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-zinc-400">Seu Nome</label>
                 <input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all placeholder:text-zinc-600"
                   placeholder="João Silva"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Email Corporativo</label>
-                <input 
-                  type="email" 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all placeholder:text-zinc-600"
-                  placeholder="joao@empresa.com"
+                  required
                 />
               </div>
 
                <div className="space-y-2">
                 <label className="text-sm font-medium text-zinc-400">Serviço de Interesse</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all [&>option]:bg-black">
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all [&>option]:bg-black"
+                >
                   <option>Identidade Visual</option>
                   <option>Sistemas e Apps</option>
                   <option>Design Gráfico</option>
@@ -87,8 +109,12 @@ export default function Contact() {
                 <label className="text-sm font-medium text-zinc-400">Mensagem</label>
                 <textarea 
                   rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all placeholder:text-zinc-600 resize-none"
                   placeholder="Conte um pouco sobre o seu projeto..."
+                  required
                 />
               </div>
 
