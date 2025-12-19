@@ -3,7 +3,7 @@ export const projects = [
     id: "neon-future",
     title: "Neon Future App", 
     category: "App Development", 
-    color: "bg-blue-600",
+    color: "bg-yellow-600",
     description: "Um aplicativo revolucionário de fintech que redefiniu a maneira como a Gen Z interage com investimentos.",
     details: "Desenvolvimento full-stack utilizando React Native e Node.js. Foco total em UX/UI fluido com animações em 60fps.",
     images: ["/placeholder1.jpg", "/placeholder2.jpg"]

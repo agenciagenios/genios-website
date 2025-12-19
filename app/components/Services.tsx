@@ -5,7 +5,7 @@ import { Palette, Code, PenTool, Video, Camera } from "lucide-react";
 
 const services = [
   {
-    icon: <Palette className="w-8 h-8 text-blue-400" />,
+    icon: <Palette className="w-8 h-8 text-yellow-400" />,
     title: "Identidade Visual",
     description: "Criação de marcas memoráveis que transmitem a essência do seu negócio com elegância."
   },

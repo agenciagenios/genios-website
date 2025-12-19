@@ -41,7 +41,7 @@ export default function Contact() {
                 </div>
                  <div>
                   <p className="text-sm text-zinc-500">WhatsApp</p>
-                  <p className="font-medium">Confira no link do perfil</p>
+                  <p className="font-medium">68 99225-3537</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function Contact() {
 
               <button 
                 type="submit"
-                className="w-full py-4 bg-blue-600 hover:bg-yellow-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group"
+                className="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group"
               >
                 Enviar Mensagem
                 <Send size={18} className="group-hover:translate-x-1 transition-transform" />

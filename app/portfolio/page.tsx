@@ -33,7 +33,7 @@ export default function PortfolioPage() {
                     <div className="absolute bottom-0 left-0 p-10 w-full">
                         <div className="flex justify-between items-end">
                             <div>
-                                <span className="text-blue-400 text-sm font-medium mb-2 block tracking-wider uppercase">{project.category}</span>
+                                <span className="text-yellow-400 text-sm font-medium mb-2 block tracking-wider uppercase">{project.category}</span>
                                 <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
                             </div>
                             <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">

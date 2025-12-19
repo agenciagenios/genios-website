@@ -13,7 +13,7 @@ export default function AboutPage() {
           >
              <span className="text-yellow-500 font-semibold tracking-wider uppercase mb-2 block">Quem Somos</span>
              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-               Nós somos <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Gênios</span>.
+               Nós somos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Gênios</span>.
              </h1>
              <p className="text-xl text-zinc-400 leading-relaxed mb-6">
                Não somos apenas uma agência digital. Somos arquitetos de experiências memoráveis. Nascemos da necessidade de unir o design de alta performance com estratégias de negócios reais.
@@ -30,9 +30,9 @@ export default function AboutPage() {
              className="lg:w-1/2 relative"
           >
              <div className="aspect-square rounded-3xl overflow-hidden glass-card p-2">
-                <div className="w-full h-full bg-gradient-to-br from-yellow-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center">
                    {/* Placeholder for Agency Image */}
-                   <span className="text-zinc-600 font-bold text-xl">Imagem da Agência/Equipe</span>
+                   <span className="text-zinc-600 font-bold text-xl">Alguma arte aqui</span>
                 </div>
              </div>
              {/* Decor Elements */}
@@ -47,11 +47,11 @@ export default function AboutPage() {
              <p className="text-zinc-400">Anos de Experiência</p>
           </div>
           <div className="glass-card p-8 rounded-3xl text-center">
-             <h3 className="text-5xl font-bold text-white mb-2">200+</h3>
+             <h3 className="text-5xl font-bold text-white mb-2">2000+</h3>
              <p className="text-zinc-400">Projetos Entregues</p>
           </div>
           <div className="glass-card p-8 rounded-3xl text-center">
-             <h3 className="text-5xl font-bold text-white mb-2">98%</h3>
+             <h3 className="text-5xl font-bold text-white mb-2">100%</h3>
              <p className="text-zinc-400">Clientes Satisfeitos</p>
           </div>
        </div>

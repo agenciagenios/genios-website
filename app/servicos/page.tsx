@@ -5,7 +5,7 @@ import { Palette, Code, PenTool, Video, Camera } from "lucide-react";
 
 const services = [
   {
-    icon: <Palette className="w-12 h-12 text-blue-400" />,
+    icon: <Palette className="w-12 h-12 text-yellow-400" />,
     title: "Identidade Visual",
     description: "Criação de marcas memoráveis que transmitem a essência do seu negócio com elegância. Inclui logotipo, paleta de cores, tipografia e manuais de marca completos.",
     features: ["Logotipo Exclusivo", "Manual da Marca", "Papelaria", "Brandbook"]
@@ -46,7 +46,7 @@ export default function ServicesPage() {
   return (
     <div className="pt-32 pb-20 container mx-auto px-6">
         <div className="text-center mb-20">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent mb-6">
                 Nossos Serviços
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
@@ -85,7 +85,7 @@ export default function ServicesPage() {
         
         <div className="mt-20 text-center">
             <p className="text-2xl text-white font-semibold mb-8">Pronto para transformar seu projeto?</p>
-            <a href="/#contato" className="px-10 py-5 bg-blue-600 hover:bg-yellow-500 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-yellow-500/25">
+            <a href="/#contato" className="px-10 py-5 bg-yellow-600 hover:bg-yellow-500 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-yellow-500/25">
                 Solicitar Orçamento
             </a>
         </div>

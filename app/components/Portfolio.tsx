@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const projects = [
-  { title: "Neon Future App", category: "App Development", color: "bg-blue-600" },
+  { title: "Neon Future App", category: "App Development", color: "bg-yellow-600" },
   { title: "Zenith Brand", category: "Identidade Visual", color: "bg-purple-600" },
   { title: "Alpha Drone", category: "Gravação Aérea", color: "bg-indigo-600" },
   { title: "Flow Motion", category: "Motion Graphics", color: "bg-pink-600" },
@@ -30,7 +30,7 @@ export default function Portfolio() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                         
                         <div className="absolute bottom-0 left-0 p-8">
-                            <span className="text-blue-400 text-sm font-medium mb-2 block">{project.category}</span>
+                            <span className="text-yellow-400 text-sm font-medium mb-2 block">{project.category}</span>
                             <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                         </div>
                     </motion.div>
@@ -38,7 +38,7 @@ export default function Portfolio() {
             </div>
             
              <div className="text-center mt-12">
-                <button className="text-white border-b border-yellow-500 pb-1 hover:text-blue-400 transition-colors">Ver todos os projetos</button>
+                <button className="text-white border-b border-yellow-500 pb-1 hover:text-yellow-400 transition-colors">Ver todos os projetos</button>
             </div>
         </div>
     </section>

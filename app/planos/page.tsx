@@ -21,7 +21,7 @@ const plans = [
       { name: "Contrato mínimo", value: "3 meses" },
     ],
     highlight: false,
-    color: "from-blue-400 to-blue-600"
+    color: "from-yellow-400 to-yellow-600"
   },
   {
     name: "PRO",
@@ -40,7 +40,7 @@ const plans = [
       { name: "Contrato mínimo", value: "3 meses" },
     ],
     highlight: true,
-    color: "from-purple-400 to-purple-600"
+    color: "from-purple-400 to-orange-600"
   },
   {
     name: "PLUS",

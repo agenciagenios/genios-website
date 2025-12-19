@@ -78,7 +78,7 @@ export default async function ProjectPage({
                 </div>
              </div>
 
-             <div className="glass-card p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-blue-600/20 to-purple-600/20">
+             <div className="glass-card p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-yellow-600/20 to-orange-600/20">
                 <h3 className="text-xl font-bold text-white mb-2">Gostou desse resultado?</h3>
                 <p className="text-zinc-300 mb-6 text-sm">Vamos construir algo similar para a sua marca.</p>
                 <a href="/#contato" className="block w-full py-3 bg-white text-black font-bold text-center rounded-xl hover:bg-zinc-200 transition-colors">
