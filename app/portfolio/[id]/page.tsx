@@ -121,16 +121,24 @@ export default async function ProjectPage({
                   <div className="space-y-4">
                      <div>
                         <span className="block text-xs text-zinc-500 uppercase tracking-wider">Cliente</span>
-                        <span className="text-white font-medium">Confidencial</span>
+                        <span className="text-white font-medium">{project.client || 'Confidencial'}</span>
                      </div>
                      <div>
                         <span className="block text-xs text-zinc-500 uppercase tracking-wider">Ano</span>
-                        <span className="text-white font-medium">2024</span>
+                        <span className="text-white font-medium">{project.year || 'N/A'}</span>
                      </div>
                      <div>
                         <span className="block text-xs text-zinc-500 uppercase tracking-wider">Serviços</span>
                         <span className="text-white font-medium">{project.category}</span>
                      </div>
+                     {project.url && (
+                        <div>
+                           <span className="block text-xs text-zinc-500 uppercase tracking-wider">Website</span>
+                           <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 font-medium transition-colors">
+                              {project.url.replace(/^https?:\/\//, '')}
+                           </a>
+                        </div>
+                     )}
                   </div>
                </div>
 

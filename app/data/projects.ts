@@ -6,7 +6,10 @@ export const projects = [
     color: "bg-yellow-600",
     description: "E-commerce de roupas",
     details: "Desenvolvido na nuvemshop por escolha do cliente, trabalhamos no layout, funcionalidades e identidade visual do site. Trabalhamos na sua logo e artes, elevando a experiência do usuário e estética do site.",
-    images: ["/projects/qw/qw1.png", "/projects/qw/qw2.png", "/projects/qw/qw3.png"]
+    images: ["/projects/qw/qw1.png", "/projects/qw/qw2.png", "/projects/qw/qw3.png"],
+    year: "2025",
+    client: "QW Store",
+    url: "https://qwstore.com.br"
   },
   {
     id: "fs-pool-professionals",
@@ -15,7 +18,10 @@ export const projects = [
     color: "bg-purple-600",
     description: "Site institucional para uma empresa de serviços de piscina na Flórida - EUA",
     details: "Desenvolvimento de site institucional para uma empresa de serviços de piscina utilizando Wordpress, com layout moderno e páginas informativas. Tudo à gosto do cliente.",
-    images: ["/projects/fs/fs1.png", "/projects/fs/fs2.png", "/projects/fs/fs3.png"]
+    images: ["/projects/fs/fs1.png", "/projects/fs/fs2.png", "/projects/fs/fs3.png"],
+    year: "2025",
+    client: "FS Pool Professionals",
+    url: "https://fspoolpro.com"
   },
   {
     id: "corpo-em-forma-e-academia",
@@ -24,7 +30,10 @@ export const projects = [
     color: "bg-indigo-600",
     description: "Site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
     details: "Desenvolvimento de site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
-    images: ["/projects/cefsa/cefsa1.png", "/projects/cefsa/cefsa2.png", "/projects/cefsa/cefsa3.png  "]
+    images: ["/projects/cefsa/cefsa1.png", "/projects/cefsa/cefsa2.png", "/projects/cefsa/cefsa3.png  "],
+    year: "2025",
+    client: "Corpo em Forma",
+    url: "https://academiacorpoemforma.com.br"
   },
   {
     id: "achy-massage",
@@ -33,6 +42,9 @@ export const projects = [
     color: "bg-pink-600",
     description: "Site com 3 idiomas para uma empresa de massagens eróticas de Faro - Portugal. Desenvolvido com HTML, CSS, JS, NODEJS, EJS e hospedado nos nosso servidores!",
     details: "Desenvolvimento de site institucional para uma empresa de massagem utilizando HTML, CSS, JS e hospedagem em servidor, com layout moderno e páginas informativas.",
-    images: ["/projects/achy/achy1.png", "/projects/achy/achy2.png", "/projects/achy/achy3.png"]
+    images: ["/projects/achy/achy1.png", "/projects/achy/achy2.png", "/projects/achy/achy3.png"],
+    year: "2025",
+    client: "Achy Massage",
+    url: "https://achymassage.com"
   },
 ];
