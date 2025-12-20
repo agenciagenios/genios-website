@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 
 export default function Portfolio() {
@@ -55,10 +56,12 @@ export default function Portfolio() {
                                             />
                                         ) : (
                                             /* eslint-disable-next-line @next/next/no-img-element */
-                                            <img
+                                            <Image
                                                 src={project.images[0]}
                                                 alt={project.title}
-                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
                                         )
                                     ) : (

@@ -33,7 +33,7 @@ export default function Header() {
     >
       <div
         className={`mx-auto max-w-7xl px-6 transition-all duration-300 ${scrolled
-          ? "mx-6 rounded-2xl glass border-white/10 bg-black/50"
+          ? "mx-6 rounded-2xl glass border-white/10"
           : "bg-transparent"
           }`}
       >

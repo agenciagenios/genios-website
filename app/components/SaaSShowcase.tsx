@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Tag, AlertCircle, Calendar } from "lucide-react";
+import Image from "next/image";
 import { useRef, useState, MouseEvent } from "react";
 import { AppStatus, apps } from "../data/apps";
 
@@ -104,7 +105,13 @@ export default function SaaSShowcase() {
               <div className={`h-48 relative overflow-hidden ${isImage ? '' : app.cover}`}>
                 {isImage ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
-                  <img src={app.cover} alt={app.title} className="w-full h-full object-cover" />
+                  <Image
+                    src={app.cover}
+                    alt={app.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover"
+                  />
                 ) : (
                   <div className="absolute inset-0 bg-black/20" />
                 )}
@@ -126,7 +133,13 @@ export default function SaaSShowcase() {
                     {/* Fallback container in case image is missing / placeholder */}
                     {app.icon ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={app.icon} alt="App Icon" className="w-full h-full object-cover" />
+                      <Image
+                        src={app.icon}
+                        alt="App Icon"
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full bg-zinc-800" />
                     )}
