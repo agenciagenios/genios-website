@@ -23,7 +23,8 @@ export default function SobreContent() {
              </p>
           </motion.div>
           
-          <motion.div 
+         {/**
+          *  <motion.div 
              initial={{ opacity: 0, scale: 0.8 }}
              animate={{ opacity: 1, scale: 1 }}
              transition={{ delay: 0.2 }}
@@ -31,14 +32,13 @@ export default function SobreContent() {
           >
              <div className="aspect-square rounded-3xl overflow-hidden glass-card p-2">
                 <div className="w-full h-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center">
-                   {/* Placeholder for Agency Image */}
                    <span className="text-zinc-600 font-bold text-xl">Alguma arte aqui</span>
                 </div>
              </div>
-             {/* Decor Elements */}
              <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-500/30 rounded-full blur-3xl -z-10" />
              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/30 rounded-full blur-3xl -z-10" />
           </motion.div>
+          */}
        </div>
 
        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
