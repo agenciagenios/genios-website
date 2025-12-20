@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-// TO-DO PEGAR DINAMICO DO DATA
-const projects = [
-  { title: "AAA", category: "App Development", color: "bg-yellow-600" },
-  { title: "BBB", category: "Identidade Visual", color: "bg-purple-600" },
-  { title: "CCC", category: "Gravação Aérea", color: "bg-indigo-600" },
-  { title: "DDD", category: "Motion Graphics", color: "bg-pink-600" },
-];
+import { projects } from "../data/projects";
 
 export default function Portfolio() {
   return (

@@ -1,38 +1,38 @@
 export const projects = [
-  { 
-    id: "neon-future",
-    title: "AAA", 
-    category: "App Development", 
+  {
+    id: "qwstore",
+    title: "QW Store",
+    category: "E-commerce",
     color: "bg-yellow-600",
-    description: "Um aplicativo revolucionário de fintech que redefiniu a maneira como a Gen Z interage com investimentos.",
-    details: "Desenvolvimento full-stack utilizando React Native e Node.js. Foco total em UX/UI fluido com animações em 60fps.",
-    images: ["/placeholder1.jpg", "/placeholder2.jpg"]
+    description: "E-commerce de roupas",
+    details: "Desenvolvido na nuvemshop por escolha do cliente, trabalhamos no layout, funcionalidades e identidade visual do site. Trabalhamos na sua logo e artes, elevando a experiência do usuário e estética do site.",
+    images: ["/projects/qw/qw1.png", "/projects/qw/qw2.png", "/projects/qw/qw3.png"]
   },
-  { 
-    id: "zenith-brand",
-    title: "BBB", 
-    category: "Identidade Visual", 
+  {
+    id: "fs-pool-professionals",
+    title: "FS Pool Professionals",
+    category: "Site institucional",
     color: "bg-purple-600",
-    description: "Rebranding completo para uma marca de moda de luxo, trazendo minimalismo e sofisticação.",
-    details: "Criação de logotipo, paleta de cores, tipografia e guidelines de marca. Aplicação em embalagens e social media.",
-    images: ["/placeholder3.jpg"] 
+    description: "Site institucional para uma empresa de serviços de piscina na Flórida - EUA",
+    details: "Desenvolvimento de site institucional para uma empresa de serviços de piscina utilizando Wordpress, com layout moderno e páginas informativas. Tudo à gosto do cliente.",
+    images: ["/projects/fs/fs1.png", "/projects/fs/fs2.png", "/projects/fs/fs3.png"]
   },
-  { 
-    id: "alpha-drone",
-    title: "CCC", 
-    category: "Gravação Aérea", 
+  {
+    id: "corpo-em-forma-e-academia",
+    title: "Corpo em Forma e Academia",
+    category: "Site institucional",
     color: "bg-indigo-600",
-    description: "Cobertura aérea 4K para um dos maiores eventos corporativos de São Paulo.",
-    details: "Captação com drones FPV e Mavic 3 Cine. Edição dinâmica com color grading cinematográfico.",
-    images: ["/placeholder4.jpg"]
+    description: "Site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
+    details: "Desenvolvimento de site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
+    images: ["/projects/cefsa/cefsa1.png", "/projects/cefsa/cefsa2.png", "/projects/cefsa/cefsa3.png  "]
   },
-  { 
-    id: "flow-motion",
-    title: "Flow Motion", 
-    category: "Motion Graphics", 
+  {
+    id: "achy-massage",
+    title: "Achy Massage",
+    category: "Site institucional",
     color: "bg-pink-600",
-    description: "Série de vídeos explicativos animados para uma startup de tecnologia.",
-    details: "Storyboard, ilustração e animação em After Effects. Explicação complexa tornada simples e visual.",
-    images: ["/placeholder5.jpg"]
+    description: "Site com 3 idiomas para uma empresa de massagens eróticas de Faro - Portugal. Desenvolvido com HTML, CSS, JS, NODEJS, EJS e hospedado nos nosso servidores!",
+    details: "Desenvolvimento de site institucional para uma empresa de massagem utilizando HTML, CSS, JS e hospedagem em servidor, com layout moderno e páginas informativas.",
+    images: ["/projects/achy/achy1.png", "/projects/achy/achy2.png", "/projects/achy/achy3.png"]
   },
 ];
