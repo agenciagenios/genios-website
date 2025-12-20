@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { projects } from "./data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://agenciagenios.com";
+  const baseUrl = "https://agenciagenios.com.br";
 
   return [
     {
@@ -34,5 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    ...projects.map((project) => ({
+      url: `${baseUrl}/portfolio/${project.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }
