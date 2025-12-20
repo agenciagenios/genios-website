@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -27,21 +28,27 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-4" : "py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"
+        }`}
     >
       <div
-        className={`mx-auto max-w-7xl px-6 transition-all duration-300 ${
-          scrolled
-            ? "mx-6 rounded-2xl glass border-white/10 bg-black/50"
-            : "bg-transparent"
-        }`}
+        className={`mx-auto max-w-7xl px-6 transition-all duration-300 ${scrolled
+          ? "mx-6 rounded-2xl glass border-white/10 bg-black/50"
+          : "bg-transparent"
+          }`}
       >
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-            Agência <span className="text-yellow-500">Gênios</span>
+          {/* Logo */}
+          <Link href="/">
+            <Image
+              src="/logo-genios.svg"
+              alt="Agência Gênios"
+              width={160}
+              height={45}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

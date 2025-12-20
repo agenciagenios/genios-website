@@ -29,17 +29,17 @@ body {
 
 /* Custom Glass Utilities */
 .glass {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.1); /* Increased opacity from 0.05 to 0.1 */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.08); /* Increased opacity from 0.03 to 0.08 */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
