@@ -13,7 +13,7 @@ export default function SobreContent() {
           >
              <span className="text-yellow-500 font-semibold tracking-wider uppercase mb-2 block">Quem Somos</span>
              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-               Nós somos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Gênios</span>.
+               Nós somos a <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Gênios</span>.
              </h1>
              <p className="text-xl text-zinc-400 leading-relaxed mb-6">
                Não somos apenas uma agência digital. Somos arquitetos de experiências memoráveis. Nascemos da necessidade de unir o design de alta performance com estratégias de negócios reais.
