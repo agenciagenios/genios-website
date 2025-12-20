@@ -18,37 +18,37 @@ export const apps: AppData[] = [
         description: "Aplicativo de celular para você nosso cliente ter seu histórico de contratos, serviços e alertas úteis.",
         tags: ["Mobile", "APP"],
         cover: "bg-indigo-600",
-        icon: "/icons/genios.png",
+        icon: "/apps/genioscliente/icon.png",
         link: "#",
         status: 'planning',
-        version: 'v0.8.0-beta'
+        version: 'v0.0.1'
     },
     {
         title: "GêniosChat",
         description: "Sistema de chatbot e multi-atendimento para empresas de qualquer porte. Agentes de IA e fluxos automatizados.",
         tags: ["IA", "Chatbot", "Multi-Atendimento"],
         cover: "bg-violet-600",
-        icon: "/icons/chat.png",
+        icon: "/apps/gchat/icon.svg",
         link: "#",
         status: 'development',
-        version: 'v0.5.0-alpha'
+        version: 'v1.0.0'
     },
     {
         title: "Desfory",
         description: "Plataforma de venda de arquivos digitais, focado em design gráfico.",
         tags: ["E-commerce", "Arq. Digitais", "Design"],
         cover: "bg-green-600",
-        icon: "/icons/desfory.png",
+        icon: "/apps/desfory/icon.svg",
         link: "#",
         status: 'development',
-        version: 'v0.2.1-alpha'
+        version: 'v0.0.1'
     },
     {
         title: "TicketPRO",
         description: "Sistema completo para gestão de eventos e tickets.",
         tags: ["Eventos", "Tickets", "Gestão"],
         cover: "bg-purple-600",
-        icon: "/icons/ticket.png",
+        icon: "/apps/gchat/icon.svg",
         link: "#",
         status: 'planning',
         version: 'v0.0.1'
@@ -58,7 +58,7 @@ export const apps: AppData[] = [
         description: "E-commerce de produtos de tecnologia.",
         tags: ["E-commerce", "Produtos", "Tecnologia"],
         cover: "bg-orange-600",
-        icon: "/icons/singlebyte.png",
+        icon: "/apps/gchat/icon.svg",
         link: "#",
         status: 'planning',
         version: 'v0.0.1'
