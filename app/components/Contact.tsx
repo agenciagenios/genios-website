@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
+import { general } from "../data/general";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export default function Contact() {
     
     const text = `*Novo Contato via Site*\n\n*Nome:* ${name}\n*Serviço:* ${service}\n*Mensagem:* ${message}`;
     const encodedText = encodeURIComponent(text);
-    const phoneNumber = "5568992253537";
+    const phoneNumber = general.whatsapp;
     
     window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
   };
