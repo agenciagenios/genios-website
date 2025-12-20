@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center mt-10 text-xs text-zinc-600">
-          © {new Date().getFullYear()} Agência Gênios. Todos os direitos reservados.
+         CNPJ 50.265.241/0001-30 © {new Date().getFullYear()} Agência Gênios. Todos os direitos reservados.
         </div>
       </div>
     </footer>

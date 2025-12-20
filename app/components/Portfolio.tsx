@@ -76,9 +76,11 @@ export default function Portfolio() {
                     })}
                 </div>
 
-                <div className="text-center mt-12">
-                    <button className="text-white border-b border-yellow-500 pb-1 hover:text-yellow-400 transition-colors">Ver todos os projetos</button>
-                </div>
+                <Link href="/portfolio#">
+                    <div className="text-center mt-12">
+                        <button className="text-white border-b border-yellow-500 pb-1 hover:text-yellow-400 transition-colors">Ver todos os projetos</button>
+                    </div>
+                </Link>
             </div>
         </section>
     );
