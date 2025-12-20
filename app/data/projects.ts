@@ -19,7 +19,7 @@ export const projects = [
     description: "Site institucional para uma empresa de serviços de piscina na Flórida - EUA",
     details: "Desenvolvimento de site institucional para uma empresa de serviços de piscina utilizando Wordpress, com layout moderno e páginas informativas. Tudo à gosto do cliente.",
     images: ["/projects/fs/fs1.png", "/projects/fs/fs2.png", "/projects/fs/fs3.png"],
-    year: "2025",
+    year: "2024",
     client: "FS Pool Professionals",
     url: "https://fspoolpro.com"
   },
@@ -31,7 +31,7 @@ export const projects = [
     description: "Site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
     details: "Desenvolvimento de site institucional para uma academia utilizando HTML, CSS, JS e hospedagem no GitHub Pages, com layout moderno e páginas informativas.",
     images: ["/projects/cefsa/cefsa1.png", "/projects/cefsa/cefsa2.png", "/projects/cefsa/cefsa3.png  "],
-    year: "2025",
+    year: "2024",
     client: "Corpo em Forma",
     url: "https://academiacorpoemforma.com.br"
   },
@@ -43,7 +43,7 @@ export const projects = [
     description: "Site com 3 idiomas para uma empresa de massagens eróticas de Faro - Portugal. Desenvolvido com HTML, CSS, JS, NODEJS, EJS e hospedado nos nosso servidores!",
     details: "Desenvolvimento de site institucional para uma empresa de massagem utilizando HTML, CSS, JS e hospedagem em servidor, com layout moderno e páginas informativas.",
     images: ["/projects/achy/achy1.png", "/projects/achy/achy2.png", "/projects/achy/achy3.png"],
-    year: "2025",
+    year: "2024",
     client: "Achy Massage",
     url: "https://achymassage.com"
   },
