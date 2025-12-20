@@ -111,7 +111,7 @@ export default function HirePlanModal({
     const handleSendToWhatsApp = () => {
         // Construct the message
         let message = `*Olá! Gostaria de contratar o Plano ${planName}* (R$ ${planPrice}/mês)\n\n`;
-        message += `Following are my details:\n\n`;
+        message += `Detalhes abaixo:\n\n`;
 
         QUESTIONS_CONFIG.forEach((q) => {
             // Check dependency
