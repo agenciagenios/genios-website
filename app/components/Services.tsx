@@ -41,10 +41,10 @@ export default function Services() {
     <section id="servicos" className="py-32 relative">
       <div className="container px-6 mx-auto">
         <div className="mb-20 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">Nossos Serviços</h2>
-            <p className="text-zinc-400 max-w-2xl mx-auto">
-              Soluções completas para elevar o nível da sua presença digital.
-            </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">Nossos Serviços</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto">
+            Soluções completas para elevar o nível da sua presença digital.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

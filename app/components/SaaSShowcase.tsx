@@ -3,72 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Tag, AlertCircle, Calendar } from "lucide-react";
 import { useRef, useState, MouseEvent } from "react";
-
-type AppStatus = 'live' | 'development' | 'planning';
-
-interface AppData {
-  title: string;
-  description: string;
-  tags: string[];
-  cover: string; // Can be a CSS class (bg-...) OR an Image URL
-  icon: string; // Path to PNG/SVG icon
-  link: string;
-  status: AppStatus;
-  version: string;
-}
-
-const apps: AppData[] = [
-  {
-    title: "Gênios Clientes",
-    description: "Aplicativo de celular para você nosso cliente ter seu histórico de contratos, serviços e alertas úteis.",
-    tags: ["Mobile", "APP"],
-    cover: "bg-indigo-600",
-    icon: "/icons/genios.png",
-    link: "#",
-    status: 'planning',
-    version: 'v0.8.0-beta'
-  },
-  {
-    title: "GêniosChat",
-    description: "Sistema de chatbot e multi-atendimento para empresas de qualquer porte. Agentes de IA e fluxos automatizados.",
-    tags: ["IA", "Chatbot", "Multi-Atendimento"],
-    cover: "bg-violet-600",
-    icon: "/icons/chat.png",
-    link: "#",
-    status: 'development',
-    version: 'v0.5.0-alpha'
-  },
-  {
-    title: "Desfory",
-    description: "Plataforma de venda de arquivos digitais, focado em design gráfico.",
-    tags: ["E-commerce", "Arq. Digitais", "Design"],
-    cover: "bg-green-600",
-    icon: "/icons/desfory.png",
-    link: "#",
-    status: 'development',
-    version: 'v0.2.1-alpha'
-  },
-  {
-    title: "TicketPRO",
-    description: "Sistema completo para gestão de eventos e tickets.",
-    tags: ["Eventos", "Tickets", "Gestão"],
-    cover: "bg-purple-600",
-    icon: "/icons/ticket.png",
-    link: "#",
-    status: 'planning',
-    version: 'v0.0.1'
-  },
-  {
-    title: "SingleByte",
-    description: "E-commerce de produtos de tecnologia.",
-    tags: ["E-commerce", "Produtos", "Tecnologia"],
-    cover: "bg-orange-600",
-    icon: "/icons/singlebyte.png",
-    link: "#",
-    status: 'planning',
-    version: 'v0.0.1'
-  }
-];
+import { AppStatus, apps } from "../data/apps";
 
 const StatusBadge = ({ status }: { status: AppStatus }) => {
   switch (status) {
@@ -131,8 +66,8 @@ export default function SaaSShowcase() {
 
   return (
     <section className="py-32 relative overflow-hidden bg-black/50">
-       {/* Background Decor */}
-       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
 
       <div className="container px-6 mx-auto mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -144,7 +79,7 @@ export default function SaaSShowcase() {
       </div>
 
       {/* Scroll Container with CSS Snap + Mouse Drag */}
-      <div 
+      <div
         ref={scrollRef}
         className={`flex overflow-x-auto snap-x snap-mandatory pb-12 px-6 md:px-[max(2rem,calc((100vw-1280px)/2+2rem))] gap-8 no-scrollbar ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab'}`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -153,96 +88,96 @@ export default function SaaSShowcase() {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
-          {apps.map((app, i) => {
-            const isImage = app.cover.includes('/') || app.cover.includes('.');
+        {apps.map((app, i) => {
+          const isImage = app.cover.includes('/') || app.cover.includes('.');
 
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="snap-center shrink-0 w-[350px] md:w-[400px] glass-card rounded-3xl overflow-hidden border border-white/10 group hover:border-yellow-500/30 transition-all select-none"
-              >
-                {/* Cover Area */}
-                <div className={`h-48 relative overflow-hidden ${isImage ? '' : app.cover}`}>
-                    {isImage ? (
-                        /* eslint-disable-next-line @next/next/no-img-element */
-                        <img src={app.cover} alt={app.title} className="w-full h-full object-cover" />
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="snap-center shrink-0 w-[350px] md:w-[400px] glass-card rounded-3xl overflow-hidden border border-white/10 group hover:border-yellow-500/30 transition-all select-none"
+            >
+              {/* Cover Area */}
+              <div className={`h-48 relative overflow-hidden ${isImage ? '' : app.cover}`}>
+                {isImage ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={app.cover} alt={app.title} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="absolute inset-0 bg-black/20" />
+                )}
+
+                {/* Dark Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+
+                {/* Status & Version Header */}
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
+                  <StatusBadge status={app.status} />
+                  <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md text-[10px] font-mono text-zinc-300 border border-white/10 shadow-lg">
+                    {app.version}
+                  </span>
+                </div>
+
+                {/* App Icon (Bottom Left) */}
+                <div className="absolute bottom-4 left-4 z-10 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg overflow-hidden relative">
+                    {/* Fallback container in case image is missing / placeholder */}
+                    {app.icon ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={app.icon} alt="App Icon" className="w-full h-full object-cover" />
                     ) : (
-                        <div className="absolute inset-0 bg-black/20" />
+                      <div className="w-full h-full bg-zinc-800" />
                     )}
-                    
-                    {/* Dark Overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  </div>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-white font-bold text-lg drop-shadow-md">{app.title}</span>
+                  </div>
+                </div>
+              </div>
 
-                    {/* Status & Version Header */}
-                    <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
-                        <StatusBadge status={app.status} />
-                        <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md text-[10px] font-mono text-zinc-300 border border-white/10 shadow-lg">
-                          {app.version}
-                        </span>
-                    </div>
-
-                    {/* App Icon (Bottom Left) */}
-                    <div className="absolute bottom-4 left-4 z-10 flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg overflow-hidden relative">
-                             {/* Fallback container in case image is missing / placeholder */}
-                            {app.icon ? (
-                                /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={app.icon} alt="App Icon" className="w-full h-full object-cover" /> 
-                            ) : (
-                                <div className="w-full h-full bg-zinc-800" />
-                            )}
-                        </div>
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                             <span className="text-white font-bold text-lg drop-shadow-md">{app.title}</span>
-                        </div>
-                    </div>
+              <div className="p-8">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {app.tags.map((tag, t) => (
+                    <span key={t} className="flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider text-zinc-400 bg-white/5 px-2 py-1 rounded-md border border-white/5">
+                      <Tag size={10} /> {tag}
+                    </span>
+                  ))}
                 </div>
 
-                <div className="p-8">
-                   <div className="flex flex-wrap gap-2 mb-6">
-                      {app.tags.map((tag, t) => (
-                          <span key={t} className="flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider text-zinc-400 bg-white/5 px-2 py-1 rounded-md border border-white/5">
-                              <Tag size={10} /> {tag}
-                          </span>
-                      ))}
-                   </div>
-                   
-                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
-                      {app.title}
-                   </h3>
-                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 min-h-[60px]">
-                     {app.description}
-                   </p>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                  {app.title}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-8 min-h-[60px]">
+                  {app.description}
+                </p>
 
-                   {/* Action Button */}
-                   {app.status === 'live' ? (
-                     <a 
-                       href={app.link} 
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-zinc-200 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                     >
-                        Acessar Plataforma <ExternalLink size={16} />
-                     </a>
-                   ) : (
-                     <button 
-                       disabled
-                       className="flex items-center justify-center gap-2 w-full py-4 bg-white/5 text-zinc-500 font-bold rounded-xl border border-white/5 cursor-not-allowed"
-                     >
-                        {app.status === 'development' ? 'Em Breve' : 'Aguarde'}
-                     </button>
-                   )}
-                </div>
-              </motion.div>
-            );
-          })}
-          
-          {/* Spacer for right-side overflow padding */}
-          <div className="shrink-0 w-6 md:w-[max(2rem,calc((100vw-1280px)/2+2rem))]" />
+                {/* Action Button */}
+                {app.status === 'live' ? (
+                  <a
+                    href={app.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-zinc-200 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Acessar Plataforma <ExternalLink size={16} />
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-white/5 text-zinc-500 font-bold rounded-xl border border-white/5 cursor-not-allowed"
+                  >
+                    {app.status === 'development' ? 'Em Breve' : 'Aguarde'}
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          );
+        })}
+
+        {/* Spacer for right-side overflow padding */}
+        <div className="shrink-0 w-6 md:w-[max(2rem,calc((100vw-1280px)/2+2rem))]" />
       </div>
     </section>
   );
