@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
 
-export default function Portfolio() {
+export default function Portfolio({ limit }: { limit?: number }) {
     return (
         <section id="portfolio" className="py-32 bg-zinc-900/30">
             <div className="container px-6 mx-auto">
@@ -16,7 +16,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map((project, i) => {
+                    {projects.slice(0, limit).map((project, i) => {
                         const isVideo = project.images && project.images.length > 0 && (project.images[0].endsWith('.mp4') || project.images[0].endsWith('.webm'));
                         /* eslint-disable-next-line react-hooks/rules-of-hooks */
                         const videoRef = useRef<HTMLVideoElement>(null);

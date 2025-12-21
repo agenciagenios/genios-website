@@ -53,6 +53,24 @@ export const projects = [
     url: "https://lovingtailsmobile.com",
   },
   {
+    id: "ibox-alugue-cell",
+    title: "iBox Alugue Cell",
+    category: "Sistema SaaS",
+    color: "bg-blue-600",
+    description:
+      "Plataforma SaaS de gestão MDM voltada à venda e locação de celulares com garantia e controle de pagamentos.",
+    details:
+      "Desenvolvimento completo de um sistema SaaS, incluindo landing page institucional, painel administrativo, servidor MDM para gerenciamento remoto dos dispositivos e aplicativo móvel destinado ao acompanhamento e pagamento das parcelas. A solução foi projetada para oferecer segurança, escalabilidade e controle total do ciclo de vida dos aparelhos.",
+    images: [
+      "/projects/ibox/ibox1.png",
+      "/projects/ibox/ibox2.png",
+      "/projects/ibox/ibox3.png",
+    ],
+    year: "2025",
+    client: "Gleiton",
+    url: "https://iboxaluguecel.com.br",
+  },
+  {
     id: "corpo-em-forma-e-academia",
     title: "Corpo em Forma e Academia",
     category: "Site institucional",
@@ -124,4 +142,60 @@ export const projects = [
     client: "Acrelândia ao Vivo",
     url: "https://acrelandiaaovivo.com.br",
   },
+  {
+    id: "dwalt-website",
+    title: "DWalt Engenharia",
+    category: "Site Institucional",
+    color: "bg-blue-600",
+    description:
+      "Site institucional desenvolvido para empresa de engenharia com atuação em Ariquemes, Rondônia.",
+    details:
+      "Desenvolvimento de site institucional com foco na apresentação da empresa, seus serviços e diferenciais técnicos. O projeto conta com layout moderno, responsivo e navegação intuitiva, reforçando a credibilidade da marca e facilitando o contato com potenciais clientes.",
+    images: [
+      "/projects/dwalt/dwalt1.png",
+      "/projects/dwalt/dwalt2.png",
+      "/projects/dwalt/dwalt3.png",
+    ],
+    year: "2023",
+    client: "Walter Silva",
+    url: "https://www.dwalt.net",
+  },
+  {
+    id: "connect",
+    title: "Connect",
+    category: "Sistema SaaS",
+    color: "bg-blue-600",
+    description:
+      "Plataforma SaaS para gestão e acompanhamento de projetos de energia solar.",
+    details:
+      "Desenvolvimento de sistema SaaS voltado ao gerenciamento de projetos fotovoltaicos, permitindo controle de etapas, organização de informações técnicas e acompanhamento do progresso das instalações. A solução foi projetada com foco em eficiência operacional, escalabilidade e facilidade de uso.",
+    images: [
+      "/projects/connect/connect1.png",
+      "/projects/connect/connect2.png",
+      "/projects/connect/connect3.png",
+    ],
+    year: "2024",
+    client: "Walter Silva",
+    url: "https://connect.dwalt.net",
+  },
+  {
+    id: "afiliados-dwalt",
+    title: "Afiliados DWalt",
+    category: "Sistema",
+    color: "bg-blue-600",
+    description:
+      "Sistema desenvolvido para gestão do programa de afiliados da DWalt Engenharia.",
+    details:
+      "Desenvolvimento de sistema interno para gerenciamento de afiliados, com controle de cadastros, acompanhamento de indicações e organização de comissões. A solução visa automatizar processos e oferecer maior controle e transparência na operação comercial da empresa.",
+    images: [
+      "/projects/afiliados/afiliados1.png",
+      "/projects/afiliados/afiliados2.png",
+      "/projects/afiliados/afiliados3.png",
+    ],
+    year: "2024",
+    client: "Walter Silva",
+    url: "https://afiliados.dwalt.net",
+  },
+  // prospect (landing, app e manager), connect cliente, connect equipe, geeknote
+  // https://luarrekcah.github.io/advogado/
 ];

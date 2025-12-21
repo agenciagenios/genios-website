@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <Services />
       <SaaSShowcase />
-      <Portfolio />
+      <Portfolio limit={4} />
       <Contact />
     </main>
   );
