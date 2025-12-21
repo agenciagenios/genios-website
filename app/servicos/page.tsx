@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Serviços",
   description: "Conheça nossos serviços de Identidade Visual, Desenvolvimento de Apps, Design Gráfico e Edição de Vídeo. Soluções completas para elevar sua marca.",
   alternates: {
-    canonical: "https://agenciagenios.com/servicos",
+    canonical: "https://agenciagenios.com.br/servicos",
   },
 };
 

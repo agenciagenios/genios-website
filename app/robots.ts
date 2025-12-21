@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://agenciagenios.com/sitemap.xml",
+    sitemap: "https://agenciagenios.com.br/sitemap.xml",
   };
 }

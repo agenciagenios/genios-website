@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Portfólio",
   description: "Exemplos reais de como transformamos marcas. Identidade Visual, Sites, Apps e muito mais. Veja nossos cases de sucesso.",
   alternates: {
-    canonical: "https://agenciagenios.com/portfolio",
+    canonical: "https://agenciagenios.com.br/portfolio",
   },
 };
 

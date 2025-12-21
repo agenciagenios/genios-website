@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://agenciagenios.com"),
+  metadataBase: new URL("https://agenciagenios.com.br"),
   title: {
     default: "Agência Gênios | Design, Sistemas e Identidade Visual",
     template: "%s | Agência Gênios",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Agência Gênios | Design, Sistemas e Identidade Visual",
     description: "Do conceito à inovação. Transformamos ideias em realidade digital com design premium e tecnologia de ponta.",
-    url: "https://agenciagenios.com",
+    url: "https://agenciagenios.com.br",
     siteName: "Agência Gênios",
     images: [
       {
