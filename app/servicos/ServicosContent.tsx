@@ -36,7 +36,7 @@ const services = [
   },
   {
     icon: <svg className="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>,
-    title: "SEO Agressivo",
+    title: "SEO",
     description: "Estratégias avançadas para posicionar seu site no topo das buscas e gerar leads qualificados sem depender apenas de anúncios pagos.",
     features: ["Auditoria SEO", "Otimização On-page", "Link Building", "Copywriting"]
   }
