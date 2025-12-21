@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Agência Gênios",
     images: [
       {
-        url: "/og-image.jpg", // Make sure to create this image or update path
+        url: "/og_image.png", // Make sure to create this image or update path
         width: 1200,
         height: 630,
         alt: "Agência Gênios - Transformando Ideias em Realidade",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agência Gênios",
     description: "Do conceito à inovação. Transformamos ideias em realidade digital.",
-    images: ["/og-image.jpg"], // Reusing OG image for consistency
+    images: ["/og_image.png"], // Reusing OG image for consistency
   },
   robots: {
     index: true,
