@@ -1,20 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Palette, Code, PenTool, Video, Camera } from "lucide-react";
+import { Palette, Code, PenTool, Video, Camera, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import ServiceBriefingModal from "./ServiceBriefingModal";
+import { general } from "../data/general";
 
 const services = [
   {
     icon: <Palette className="w-12 h-12 text-yellow-400" />,
     title: "Identidade Visual",
     description: "Criação de marcas memoráveis que transmitem a essência do seu negócio com elegância. Inclui logotipo, paleta de cores, tipografia e manuais de marca completos.",
-    features: ["Logotipo Exclusivo", "Manual da Marca", "Papelaria", "Brandbook"]
+    features: ["Logotipo Exclusivo", "Manual da Marca", "Papelaria", "Brandbook"],
+    hasBriefing: true
   },
   {
     icon: <Code className="w-12 h-12 text-purple-400" />,
     title: "Sistemas & Apps",
     description: "Desenvolvimento de soluções digitais robustas, escaláveis e focadas na experiência do usuário. Web Apps, Sites Institucionais e Aplicativos Mobile.",
-    features: ["iOS & Android", "Dashboards", "Sistemas SaaS", "Integrações API"]
+    features: ["iOS & Android", "Dashboards", "Sistemas SaaS", "Integrações API"],
+    hasBriefing: true
   },
   {
     icon: <PenTool className="w-12 h-12 text-pink-400" />,
@@ -43,52 +48,78 @@ const services = [
 ];
 
 export default function ServicosContent() {
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
+  const handleServiceClick = (service: typeof services[0]) => {
+    if (service.hasBriefing) {
+      setSelectedService(service.title);
+    } else {
+      // Default behavior for other services: Redirect to WhatsApp
+      const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o serviço de ${service.title}.`);
+      window.open(`https://wa.me/${general.whatsapp}?text=${message}`, "_blank");
+    }
+  };
+
   return (
     <div className="pt-32 pb-20 container mx-auto px-6">
-        <div className="text-center mb-20">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent mb-6">
-                Nossos Serviços
-            </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-                Na Agência Gênios, unimos criatividade e tecnologia para entregar soluções que transformam o seu negócio.
-            </p>
-        </div>
+      <div className="text-center mb-20">
+        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent mb-6">
+          Nossos Serviços
+        </h1>
+        <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+          Na Agência Gênios, unimos criatividade e tecnologia para entregar soluções que transformam o seu negócio.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="glass-card p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/10 hover:border-yellow-500/30"
-                >
-                    <div className="mb-8 p-4 rounded-2xl bg-white/5 w-fit group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                    </div>
-                    <h2 className="text-3xl font-bold text-white mb-4">{service.title}</h2>
-                    <p className="text-zinc-400 text-lg leading-relaxed mb-8">
-                        {service.description}
-                    </p>
-                    
-                    <ul className="grid grid-cols-2 gap-4">
-                        {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-sm text-zinc-300">
-                                <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3" />
-                                {feature}
-                            </li>
-                        ))}
-                    </ul>
-                </motion.div>
-            ))}
-        </div>
-        
-        <div className="mt-20 text-center">
-            <p className="text-2xl text-white font-semibold mb-8">Pronto para transformar seu projeto?</p>
-            <a href="/#contato" className="px-10 py-5 bg-yellow-600 hover:bg-yellow-500 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-yellow-500/25">
-                Solicitar Orçamento
-            </a>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.1 }}
+            className="glass-card p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/10 hover:border-yellow-500/30 flex flex-col"
+          >
+            <div className="mb-8 p-4 rounded-2xl bg-white/5 w-fit group-hover:scale-110 transition-transform duration-300">
+              {service.icon}
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-4">{service.title}</h2>
+            <p className="text-zinc-400 text-lg leading-relaxed mb-8 flex-grow">
+              {service.description}
+            </p>
+
+            <ul className="grid grid-cols-2 gap-4 mb-8">
+              {service.features.map((feature, idx) => (
+                <li key={idx} className="flex items-center text-sm text-zinc-300">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => handleServiceClick(service)}
+              className="w-full py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-yellow-500/50 text-white font-semibold transition-all group-hover:shadow-lg hover:shadow-yellow-500/10 flex items-center justify-center gap-2"
+            >
+              {service.hasBriefing ? "Iniciar Briefing" : "Solicitar Orçamento"}
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="mt-20 text-center">
+        <p className="text-2xl text-white font-semibold mb-8">Pronto para transformar seu projeto?</p>
+        <a href="/#contato" className="px-10 py-5 bg-yellow-600 hover:bg-yellow-500 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-yellow-500/25">
+          Falar com Consultor
+        </a>
+      </div>
+
+      <ServiceBriefingModal
+        isOpen={!!selectedService}
+        onClose={() => setSelectedService(null)}
+        serviceName={selectedService || ""}
+      />
     </div>
   );
 }
