@@ -78,6 +78,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  other: {
+    "apple-mobile-web-app-title": "Gênios",
+  }
 };
 
 export default function RootLayout({
