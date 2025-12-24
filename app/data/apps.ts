@@ -29,8 +29,8 @@ export const apps: AppData[] = [
         tags: ["IA", "Chatbot", "Multi-Atendimento"],
         cover: "bg-violet-600",
         icon: "/apps/gchat/icon.svg",
-        link: "#",
-        status: 'development',
+        link: "https://chat.agenciagenios.com.br",
+        status: 'live',
         version: 'v1.0.0'
     },
     {
