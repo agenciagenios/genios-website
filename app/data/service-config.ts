@@ -34,7 +34,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Relatórios de performance detalhados"
         ],
         cta: "Receber Consultoria Gratuita",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "agencia-digital": {
         slugPrefix: "agencia-digital",
@@ -48,7 +48,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Foco total em ROI"
         ],
         cta: "Quero Digitalizar Meu Negócio",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "social-media": {
         slugPrefix: "social-media",
@@ -76,7 +76,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Relatórios transparentes"
         ],
         cta: "Aumentar Minhas Vendas",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "programador": {
         slugPrefix: "programador",
@@ -90,7 +90,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Manutenção e suporte técnico"
         ],
         cta: "Falar com Desenvolvedor",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "desenvolvedor": {
         slugPrefix: "desenvolvedor",
@@ -104,7 +104,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Tecnologias modernas (React, Node, etc)"
         ],
         cta: "Cotar Projeto",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "criar-site": {
         slugPrefix: "criar-site",
@@ -118,7 +118,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Painel administrativo fácil"
         ],
         cta: "Quero um Site Novo",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     },
     "motion-designer": {
         slugPrefix: "motion-designer",
@@ -146,6 +146,6 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Entregas rápidas"
         ],
         cta: "Contratar Edição",
-        ctaUrl: "/contato"
+        ctaUrl: "/#contato"
     }
 };

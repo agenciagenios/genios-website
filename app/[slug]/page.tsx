@@ -4,9 +4,19 @@ import MarketingTemplate from "@/app/components/templates/MarketingTemplate";
 import DeveloperTemplate from "@/app/components/templates/DeveloperTemplate";
 import CreativeTemplate from "@/app/components/templates/CreativeTemplate";
 import { Metadata } from "next";
+import cities from "@/app/data/cities.json";
 
-// Helper to format city names (e.g. sao-paulo -> São Paulo)
-function formatCityName(slug: string): string {
+// Helper to normalize strings for comparison (matches logic used in sitemap)
+function toSlug(text: string): string {
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "-");
+}
+
+// Helper to format city names as fallback (e.g. sao-paulo -> São Paulo)
+function formatCityNameFallback(slug: string): string {
     return slug
         .split("-")
         .map((word) => {
@@ -31,9 +41,14 @@ function parseSlug(slug: string): { service: ServiceConfig; city: string; key: s
             const citySlug = slug.replace(prefix, "");
             if (!citySlug) continue; // "social-media-em-" is invalid
 
+            // Try to find the city in our database to get the correct accentuation
+            // We search by slug to match the URL
+            const foundCity = (cities as { name: string, id: number, state: string }[]).find(c => toSlug(c.name) === citySlug);
+            const cityName = foundCity ? foundCity.name : formatCityNameFallback(citySlug);
+
             return {
                 service: SERVICE_CONFIG[key],
-                city: formatCityName(citySlug),
+                city: cityName,
                 key: key
             };
         }
@@ -62,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const description = service.description.replace("{{city}}", city);
 
     return {
-        title: `${title} | Agência Gênios`,
+        title: `${title}`,
         description: description,
         openGraph: {
             title: title,

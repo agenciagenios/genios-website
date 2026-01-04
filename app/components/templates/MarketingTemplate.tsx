@@ -51,7 +51,7 @@ export default function MarketingTemplate({ service, city }: MarketingTemplatePr
                                     {service.cta}
                                 </Link>
                                 <Link
-                                    href={`https://wa.me/5548999999999?text=Olá, vi a página de ${service.slugPrefix} em ${city} e gostaria de saber mais.`}
+                                    href={`https://wa.me/556892253537?text=Olá, vi a página de ${service.slugPrefix} em ${city} e gostaria de saber mais.`}
                                     target="_blank"
                                     className="px-8 py-4 text-lg font-medium text-white border border-white/10 rounded-full hover:bg-white/5 transition-all"
                                 >
