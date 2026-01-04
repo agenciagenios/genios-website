@@ -45,7 +45,7 @@ export default function MarketingTemplate({ service, city }: MarketingTemplatePr
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <Link
-                                    href="#contato"
+                                    href={service.ctaUrl}
                                     className="px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(234,179,8,0.4)]"
                                 >
                                     {service.cta}
@@ -115,7 +115,7 @@ export default function MarketingTemplate({ service, city }: MarketingTemplatePr
                         Pronto para dominar <span className="text-yellow-500">{city}</span>?
                     </h2>
                     <Link
-                        href="#contato"
+                        href={service.ctaUrl}
                         className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-black bg-white rounded-full hover:bg-zinc-200 transition-all"
                     >
                         Começar Agora <ArrowRight className="w-6 h-6" />

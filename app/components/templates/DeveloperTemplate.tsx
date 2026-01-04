@@ -50,7 +50,7 @@ export default function DeveloperTemplate({ service, city }: DeveloperTemplatePr
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">
                                 <Link
-                                    href="#contato"
+                                    href={service.ctaUrl}
                                     className="px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                                 >
                                     {service.cta}
@@ -114,7 +114,7 @@ export default function DeveloperTemplate({ service, city }: DeveloperTemplatePr
             <section className="py-32 text-center">
                 <div className="container mx-auto px-6">
                     <Link
-                        href="#contato"
+                        href={service.ctaUrl}
                         className="group inline-flex items-center gap-4 text-3xl md:text-5xl font-bold text-white hover:text-blue-400 transition-colors"
                     >
                         Iniciar Desenvolvimento <ArrowRight className="w-10 h-10 group-hover:translate-x-2 transition-transform" />

@@ -18,6 +18,7 @@ export interface ServiceConfig {
     description: string;
     benefits: string[];
     cta: string;
+    ctaUrl: string;
 }
 
 export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
@@ -32,7 +33,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Estratégias personalizadas para {{city}}",
             "Relatórios de performance detalhados"
         ],
-        cta: "Receber Consultoria Gratuita"
+        cta: "Receber Consultoria Gratuita",
+        ctaUrl: "/contato"
     },
     "agencia-digital": {
         slugPrefix: "agencia-digital",
@@ -45,7 +47,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Gestão completa de redes sociais",
             "Foco total em ROI"
         ],
-        cta: "Quero Digitalizar Meu Negócio"
+        cta: "Quero Digitalizar Meu Negócio",
+        ctaUrl: "/contato"
     },
     "social-media": {
         slugPrefix: "social-media",
@@ -58,7 +61,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Interação com seguidores",
             "Crescimento real de audiência"
         ],
-        cta: "Orçar Gestão de Redes"
+        cta: "Ver Planos de Social Media",
+        ctaUrl: "/planos"
     },
     "gestor-de-trafego": {
         slugPrefix: "gestor-de-trafego",
@@ -71,7 +75,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Segmentação local precisa para {{city}}",
             "Relatórios transparentes"
         ],
-        cta: "Aumentar Minhas Vendas"
+        cta: "Aumentar Minhas Vendas",
+        ctaUrl: "/contato"
     },
     "programador": {
         slugPrefix: "programador",
@@ -84,7 +89,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Integrações de API",
             "Manutenção e suporte técnico"
         ],
-        cta: "Falar com Desenvolvedor"
+        cta: "Falar com Desenvolvedor",
+        ctaUrl: "/contato"
     },
     "desenvolvedor": {
         slugPrefix: "desenvolvedor",
@@ -97,7 +103,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Sistemas SaaS",
             "Tecnologias modernas (React, Node, etc)"
         ],
-        cta: "Cotar Projeto"
+        cta: "Cotar Projeto",
+        ctaUrl: "/contato"
     },
     "criar-site": {
         slugPrefix: "criar-site",
@@ -110,7 +117,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Otimização SEO inclusa",
             "Painel administrativo fácil"
         ],
-        cta: "Quero um Site Novo"
+        cta: "Quero um Site Novo",
+        ctaUrl: "/contato"
     },
     "motion-designer": {
         slugPrefix: "motion-designer",
@@ -123,7 +131,8 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Vinhetas e logos animados",
             "Edição dinâmica"
         ],
-        cta: "Ver Portfolio Motion"
+        cta: "Ver Portfolio Motion",
+        ctaUrl: "/portfolio"
     },
     "editor-de-video": {
         slugPrefix: "editor-de-video",
@@ -136,6 +145,7 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
             "Sound design imersivo",
             "Entregas rápidas"
         ],
-        cta: "Contratar Edição"
+        cta: "Contratar Edição",
+        ctaUrl: "/contato"
     }
 };
