@@ -24,6 +24,16 @@ export const apps: AppData[] = [
         version: 'v0.0.1'
     },
     {
+        title: "Links",
+        description: "Sistema de links para empresas de qualquer porte. Cartão de visitas digital.",
+        tags: ["Links", "Cartão Visita Digital"],
+        cover: "bg-violet-600",
+        icon: "https://links.agenciagenios.com.br/genios-links.png",
+        link: "https://links.agenciagenios.com.br",
+        status: 'live',
+        version: 'v0.0.1'
+    },
+    {
         title: "GêniosChat",
         description: "Sistema de chatbot e multi-atendimento para empresas de qualquer porte. Agentes de IA e fluxos automatizados.",
         tags: ["IA", "Chatbot", "Multi-Atendimento"],
