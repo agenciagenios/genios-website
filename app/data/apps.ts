@@ -19,9 +19,9 @@ export const apps: AppData[] = [
         tags: ["Mobile", "APP"],
         cover: "bg-indigo-600",
         icon: "/apps/genioscliente/icon.png",
-        link: "#",
-        status: 'planning',
-        version: 'v0.0.1'
+        link: "https://play.google.com/store/apps/details?id=com.agenciagenios.clientes",
+        status: 'live',
+        version: 'v1.0.0'
     },
     {
         title: "Links",
