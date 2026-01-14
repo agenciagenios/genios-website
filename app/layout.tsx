@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import SmoothScroll from "./components/SmoothScroll";
+import JsonLd from "./components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -107,6 +108,7 @@ export default function RootLayout({
         <SmoothScroll />
         <Header />
         {children}
+        <JsonLd />
         <Footer />
         <BackToTop />
       </body>
