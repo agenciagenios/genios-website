@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Agência Gênios",
     images: [
       {
-        url: "/og_image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Planos de Social Media da Agência Gênios",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Planos de Social Media | Agência Gênios",
     description:
       "Planos completos de gestão de redes sociais com foco em crescimento, engajamento e conversão.",
-    images: ["/og_image.png"],
+    images: ["/og-image.png"],
   },
 
   robots: {

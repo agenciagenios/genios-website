@@ -75,14 +75,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { service, city } = data;
     const title = service.titlePromise.replace("{{city}}", city);
     const description = service.description.replace("{{city}}", city);
+    const canonicalUrl = `https://agenciagenios.com.br/${slug}`;
 
     return {
         title: `${title}`,
         description: description,
+        alternates: {
+            canonical: canonicalUrl,
+        },
         openGraph: {
             title: title,
             description: description,
-            // images: ['/og-image.jpg'], // TODO: Generate dynamic OG images later if needed
+            url: canonicalUrl,
+            siteName: "Agência Gênios",
+            locale: "pt_BR",
+            type: "website",
+            images: ['/og-image.jpg'],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: title,
+            description: description,
         }
     };
 }
@@ -97,14 +110,50 @@ export default async function DynamicServicePage({ params }: Props) {
 
     const { service, city } = data;
 
-    switch (service.category) {
-        case "marketing":
-            return <MarketingTemplate service={service} city={city} />;
-        case "developer":
-            return <DeveloperTemplate service={service} city={city} />;
-        case "creative":
-            return <CreativeTemplate service={service} city={city} />;
-        default:
-            return <MarketingTemplate service={service} city={city} />;
-    }
+    // Structured Data (JSON-LD) for LocalBusiness/Service
+    // This helps Google understand that we offer specific services in specific cities
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": service.titlePromise.replace("{{city}}", city),
+        "description": service.description.replace("{{city}}", city),
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Agência Gênios",
+            "image": "https://agenciagenios.com.br/logo.png", // Ensure this exists or use a variable
+            "telephone": "+556892253537", // Replace with actual company phone
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "BR",
+                "addressLocality": city
+            },
+            "priceRange": "$$"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": city
+        },
+        "url": `https://agenciagenios.com.br/${slug}`
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            {(() => {
+                switch (service.category) {
+                    case "marketing":
+                        return <MarketingTemplate service={service} city={city} />;
+                    case "developer":
+                        return <DeveloperTemplate service={service} city={city} />;
+                    case "creative":
+                        return <CreativeTemplate service={service} city={city} />;
+                    default:
+                        return <MarketingTemplate service={service} city={city} />;
+                }
+            })()}
+        </>
+    );
 }

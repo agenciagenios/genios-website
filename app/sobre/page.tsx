@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Agência Gênios",
     images: [
       {
-        url: "/og_image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sobre a Agência Gênios",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Sobre a Agência Gênios",
     description:
       "Conheça a história, os valores e o propósito da Agência Gênios.",
-    images: ["/og_image.png"],
+    images: ["/og-image.png"],
   },
 
   robots: {
