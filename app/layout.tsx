@@ -80,7 +80,18 @@ export const metadata: Metadata = {
   },
   other: {
     "apple-mobile-web-app-title": "Gênios",
-  }
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon0.svg", type: "image/svg+xml" },
+      { url: "/icon1.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png" },
+    ],
+  },
 };
 
 export default function RootLayout({
