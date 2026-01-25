@@ -5,13 +5,19 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import HirePlanModal from "./HirePlanModal";
 
-const unitValues = {
+const UNIT_VALUES = {
   post: 70,
-  motion15s: 150,
-  unitLanding: 300,
-  unitSite: 1800,
-  unitGestor: 500
-}
+  motion: 150,
+  video: 150,
+  landingPage: 150,
+  siteEcommerce: 300,
+  googleAds: 100,
+  gestor: {
+    3: 300,
+    4: 500,
+    5: 700
+  }
+};
 
 const contentPlans = [
   {
@@ -23,7 +29,7 @@ const contentPlans = [
       { name: "Geração de conteúdo e postagens", value: true },
       { name: "Posts semanais", value: "3 posts" },
       { name: "Réplica dos posts para stories", value: true },
-      { name: "Investimento Tráfego Pago", value: "+ valor a combinar"},
+      { name: "Investimento Tráfego Pago", value: "+ valor a combinar" },
       { name: "Padronização visual das postagens", value: true },
       { name: "Flyer Motion (até 15s) / Vídeo", value: false },
       { name: "Site com links", value: true },
@@ -42,7 +48,7 @@ const contentPlans = [
       { name: "Geração de conteúdo e postagens", value: true },
       { name: "Posts semanais", value: "4 posts" },
       { name: "Réplica dos posts para stories", value: true },
-      { name: "Investimento Tráfego Pago", value:  "+ valor a combinar" },
+      { name: "Investimento Tráfego Pago", value: "+ valor a combinar" },
       { name: "Padronização visual das postagens", value: true },
       { name: "Flyer Motion (até 15s) / Vídeo", value: 2 },
       { name: "Site com links", value: true },
@@ -145,12 +151,44 @@ const resultPlans = [
 export default function PlanosContent() {
   const [selectedPlan, setSelectedPlan] = useState<{ name: string, price: string } | null>(null);
   const [category, setCategory] = useState<"conteudo" | "resultado" | "personalizado">("conteudo");
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [customSelection, setCustomSelection] = useState({
+    posts: 0,
+    motions: 0,
+    videos: 0,
+    gestorTier: 0 as 0 | 3 | 4 | 5,
+    landingPage: false,
+    siteEcommerce: false,
+    googleAds: false,
+  });
 
-  const toggleOption = (opt: string) => {
-    setSelectedOptions(prev =>
-      prev.includes(opt) ? prev.filter(o => o !== opt) : [...prev, opt]
-    );
+  const calculateTotal = () => {
+    let total = 0;
+    total += customSelection.posts * UNIT_VALUES.post;
+    total += customSelection.motions * UNIT_VALUES.motion;
+    total += customSelection.videos * UNIT_VALUES.video;
+
+    if (customSelection.gestorTier > 0) {
+      total += UNIT_VALUES.gestor[customSelection.gestorTier as keyof typeof UNIT_VALUES.gestor];
+    }
+
+    if (customSelection.landingPage) total += UNIT_VALUES.landingPage;
+    if (customSelection.siteEcommerce) total += UNIT_VALUES.siteEcommerce;
+    if (customSelection.googleAds) total += UNIT_VALUES.googleAds;
+
+    return total;
+  };
+
+  const getCustomPlanName = () => {
+    const parts = [];
+    if (customSelection.posts > 0) parts.push(`${customSelection.posts} posts`);
+    if (customSelection.motions > 0) parts.push(`${customSelection.motions} motions`);
+    if (customSelection.videos > 0) parts.push(`${customSelection.videos} vídeos`);
+    if (customSelection.gestorTier > 0) parts.push(`Gestor (${customSelection.gestorTier} artes)`);
+    if (customSelection.landingPage) parts.push("Landing Page (3m)");
+    if (customSelection.siteEcommerce) parts.push("Site/Ecom (6m)");
+    if (customSelection.googleAds) parts.push("Tráfego Google");
+
+    return parts.length > 0 ? `PERSONALIZADO: ${parts.join(", ")}` : "Plano Personalizado";
   };
 
   const customOptionsList = [
@@ -281,53 +319,147 @@ export default function PlanosContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 text-left">
-            {customOptionsList.map((opt) => (
-              <div
-                key={opt.id}
-                onClick={() => toggleOption(opt.label)}
-                className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer group flex items-start gap-4
-                  ${selectedOptions.includes(opt.label)
-                    ? 'bg-yellow-500/10 border-yellow-500/30'
-                    : 'bg-white/5 border-white/5 hover:border-white/20 hover:bg-white/10'
-                  }`}
-              >
-                <div className={`mt-1 min-w-[24px] h-6 rounded-lg border flex items-center justify-center transition-colors
-                   ${selectedOptions.includes(opt.label)
-                    ? 'bg-yellow-500 border-yellow-500 text-black'
-                    : 'border-white/20 group-hover:border-white/40'
-                  }`}
-                >
-                  {selectedOptions.includes(opt.label) && <Check className="w-4 h-4" />}
-                </div>
-                <div>
-                  <h4 className={`font-bold transition-colors ${selectedOptions.includes(opt.label) ? 'text-yellow-400' : 'text-white'}`}>
-                    {opt.label}
-                  </h4>
-                  <p className="text-sm text-zinc-500 mt-1">{opt.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            {/* Left Column: Quantities */}
+            <div className="space-y-8">
+              <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-sm">1</span>
+                Selecione as Quantidades Mensais
+              </h3>
+
+              <div className="space-y-6">
+                {[
+                  { id: 'posts', label: 'Quantidade de posts semanais', desc: 'Com réplica para stories e copy', unit: 'posts', price: UNIT_VALUES.post },
+                  { id: 'motions', label: 'Quantidade de motions', desc: 'Vídeos animados de até 15s', unit: 'motions', price: UNIT_VALUES.motion },
+                  { id: 'videos', label: 'Quantidade de vídeos editados', desc: 'Edição profissional de Reels/Shorts', unit: 'vídeos', price: UNIT_VALUES.video },
+                ].map((item) => (
+                  <div key={item.id} className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
+                    <div className="flex items-center justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold text-white">{item.label}</h4>
+                        <p className="text-xs text-zinc-500">{item.desc}</p>
+                      </div>
+                      <div className="flex items-center gap-4 bg-black/40 rounded-xl p-1 border border-white/5">
+                        <button
+                          onClick={() => setCustomSelection(prev => ({ ...prev, [item.id]: Math.max(0, (prev as any)[item.id] - 1) }))}
+                          className="w-10 h-10 rounded-lg hover:bg-white/5 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                        >
+                          -
+                        </button>
+                        <span className="w-8 text-center font-bold text-white">{(customSelection as any)[item.id]}</span>
+                        <button
+                          onClick={() => setCustomSelection(prev => ({ ...prev, [item.id]: (prev as any)[item.id] + 1 }))}
+                          className="w-10 h-10 rounded-lg hover:bg-white/5 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div className="text-xs text-yellow-500/70 font-medium">R$ {item.price}/unidade</div>
+                  </div>
+                ))}
+
+                {/* Gestor de Trafego Tiers */}
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
+                  <h4 className="font-bold text-white mb-1">Gestor de Tráfego</h4>
+                  <p className="text-xs text-zinc-500 mb-4">Escolha a frequência de artes semanais</p>
+                  <div className="grid grid-cols-4 gap-2">
+                    {[0, 3, 4, 5].map((tier) => (
+                      <button
+                        key={tier}
+                        onClick={() => setCustomSelection(prev => ({ ...prev, gestorTier: tier as any }))}
+                        className={`py-2 rounded-lg border text-sm font-bold transition-all
+                          ${customSelection.gestorTier === tier
+                            ? 'bg-yellow-500 border-yellow-500 text-black'
+                            : 'bg-white/5 border-white/5 text-zinc-400 hover:border-white/20'}`}
+                      >
+                        {tier === 0 ? 'Nenhum' : `${tier} artes`}
+                      </button>
+                    ))}
+                  </div>
+                  {customSelection.gestorTier > 0 && (
+                    <div className="mt-3 text-xs text-yellow-500/70 font-medium">
+                      R$ {UNIT_VALUES.gestor[customSelection.gestorTier as keyof typeof UNIT_VALUES.gestor]}/mês
+                    </div>
+                  )}
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right Column: Add-ons & Services */}
+            <div className="space-y-8">
+              <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-sm">2</span>
+                Módulos de Expansão
+              </h3>
+
+              <div className="space-y-4">
+                {[
+                  { id: 'landingPage', label: 'Landing Page de Conversão', desc: 'Contrato mín. 3 meses • R$ 150/mês', price: UNIT_VALUES.landingPage },
+                  { id: 'siteEcommerce', label: 'Site Institucional / E-commerce', desc: 'Contrato mín. 6 meses • R$ 300/mês', price: UNIT_VALUES.siteEcommerce },
+                  { id: 'googleAds', label: 'Tráfego Pago para o Google', desc: 'Aumento na performance de busca', price: UNIT_VALUES.googleAds },
+                ].map((opt) => (
+                  <div
+                    key={opt.id}
+                    onClick={() => setCustomSelection(prev => ({ ...prev, [opt.id]: !(prev as any)[opt.id] }))}
+                    className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer group flex items-start gap-4
+                      ${(customSelection as any)[opt.id]
+                        ? 'bg-yellow-500/10 border-yellow-500/30'
+                        : 'bg-white/5 border-white/5 hover:border-white/20 hover:bg-white/10'
+                      }`}
+                  >
+                    <div className={`mt-1 min-w-[24px] h-6 rounded-lg border flex items-center justify-center transition-colors
+                       ${(customSelection as any)[opt.id]
+                        ? 'bg-yellow-500 border-yellow-500 text-black'
+                        : 'border-white/20 group-hover:border-white/40'
+                      }`}
+                    >
+                      {(customSelection as any)[opt.id] && <Check className="w-4 h-4" />}
+                    </div>
+                    <div>
+                      <h4 className={`font-bold transition-colors ${(customSelection as any)[opt.id] ? 'text-yellow-400' : 'text-white'}`}>
+                        {opt.label}
+                      </h4>
+                      <p className="text-sm text-zinc-500 mt-1">{opt.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Summary Total */}
+              <div className="mt-12 p-8 rounded-[2rem] bg-gradient-to-br from-yellow-500/20 to-amber-500/5 border border-yellow-500/20 shadow-2xl shadow-yellow-500/5">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-zinc-400 font-medium">Investimento Estimado</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-yellow-500 text-sm font-bold">R$</span>
+                    <span className="text-4xl font-bold text-white">{calculateTotal().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                    <span className="text-zinc-500 text-sm">/mês</span>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-500 mb-8 uppercase tracking-widest text-center">Valores sujeitos a alteração conforme complexidade</p>
+                <button
+                  onClick={() => setSelectedPlan({
+                    name: getCustomPlanName(),
+                    price: calculateTotal().toLocaleString('pt-BR', { minimumFractionDigits: 2 })
+                  })}
+                  disabled={calculateTotal() === 0}
+                  className={`w-full py-5 rounded-2xl text-black font-bold text-lg transition-all shadow-xl
+                    ${calculateTotal() > 0
+                      ? 'bg-gradient-to-r from-yellow-500 to-amber-600 hover:scale-105 active:scale-95 shadow-yellow-500/20'
+                      : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+                    }`}
+                >
+                  {calculateTotal() === 0
+                    ? "Selecione as opções"
+                    : "Contratar Plano Personalizado"
+                  }
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col items-center gap-6">
-            <button
-              onClick={() => setSelectedPlan({
-                name: `PERSONALIZADO (${selectedOptions.length} itens)`,
-                price: "Sob Consulta"
-              })}
-              disabled={selectedOptions.length === 0}
-              className={`px-12 py-5 rounded-2xl text-black font-bold text-lg transition-all shadow-xl
-                ${selectedOptions.length > 0
-                  ? 'bg-gradient-to-r from-yellow-500 to-amber-600 hover:scale-105 active:scale-95 shadow-yellow-500/20'
-                  : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                }`}
-            >
-              {selectedOptions.length === 0
-                ? "Selecione ao menos uma opção"
-                : "Solicitar Orçamento Personalizado"
-              }
-            </button>
+
             <p className="text-xs text-zinc-600 uppercase tracking-widest font-semibold flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse" />
               Resposta em até 24 horas úteis
