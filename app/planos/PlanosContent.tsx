@@ -12,11 +12,6 @@ const UNIT_VALUES = {
   landingPage: 150,
   siteEcommerce: 300,
   googleAds: 200,
-  gestor: {
-    3: 300,
-    4: 500,
-    5: 700
-  }
 };
 
 const contentPlans = [
@@ -155,11 +150,18 @@ export default function PlanosContent() {
     posts: 0,
     motions: 0,
     videos: 0,
-    gestorTier: 0 as 0 | 3 | 4 | 5,
+    gestorEnabled: false,
     landingPage: false,
     siteEcommerce: false,
     googleAds: false,
   });
+
+  const getGestorPrice = (postsPerWeek: number) => {
+    if (postsPerWeek <= 3) return 300;
+    if (postsPerWeek === 4) return 500;
+    if (postsPerWeek === 5) return 700;
+    return 700; // Default for > 5
+  };
 
   const calculateTotal = () => {
     let total = 0;
@@ -168,8 +170,8 @@ export default function PlanosContent() {
     total += customSelection.motions * UNIT_VALUES.motion;
     total += customSelection.videos * UNIT_VALUES.video;
 
-    if (customSelection.gestorTier > 0) {
-      total += UNIT_VALUES.gestor[customSelection.gestorTier as keyof typeof UNIT_VALUES.gestor];
+    if (customSelection.gestorEnabled) {
+      total += getGestorPrice(customSelection.posts);
     }
 
     if (customSelection.landingPage) total += UNIT_VALUES.landingPage;
@@ -184,7 +186,7 @@ export default function PlanosContent() {
     if (customSelection.posts > 0) parts.push(`${customSelection.posts} posts/semana (${customSelection.posts * 4} mensais)`);
     if (customSelection.motions > 0) parts.push(`${customSelection.motions} motions`);
     if (customSelection.videos > 0) parts.push(`${customSelection.videos} vídeos`);
-    if (customSelection.gestorTier > 0) parts.push(`Gestor (${customSelection.gestorTier} artes)`);
+    if (customSelection.gestorEnabled) parts.push(`Gestor Meta/FB (R$ ${getGestorPrice(customSelection.posts)})`);
     if (customSelection.landingPage) parts.push("Landing Page (3m)");
     if (customSelection.siteEcommerce) parts.push("Site/Ecom (6m)");
     if (customSelection.googleAds) parts.push("Tráfego Google");
@@ -192,16 +194,6 @@ export default function PlanosContent() {
     return parts.length > 0 ? `PERSONALIZADO: ${parts.join(", ")}` : "Plano Personalizado";
   };
 
-  const customOptionsList = [
-    { id: "sm", label: "Gestão de Redes Sociais", desc: "Posts, stories e engajamento" },
-    { id: "tp", label: "Tráfego Pago (Meta/Google)", desc: "Anúncios para atrair clientes" },
-    { id: "lp", label: "Landing Page de Conversão", desc: "Página focada em vendas" },
-    { id: "site", label: "Site Institucional", desc: "Presença oficial da sua marca" },
-    { id: "ecom", label: "E-commerce Completo", desc: "Loja virtual profissional" },
-    { id: "seo", label: "SEO e Posicionamento", desc: "Apareça no topo do Google" },
-    { id: "motion", label: "Motion Design", desc: "Vídeos animados e dinâmicos" },
-    { id: "video", label: "Edição de Vídeos (Reels)", desc: "Vídeos profissionais curtos" },
-  ];
 
   const currentPlans = category === "conteudo" ? contentPlans : resultPlans;
 
@@ -362,29 +354,38 @@ export default function PlanosContent() {
                   </div>
                 ))}
 
-                {/* Gestor de Trafego Tiers */}
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
-                  <h4 className="font-bold text-white mb-1">Gestor de Tráfego</h4>
-                  <p className="text-xs text-zinc-500 mb-4">Escolha a frequência de artes semanais</p>
-                  <div className="grid grid-cols-4 gap-2">
-                    {[0, 3, 4, 5].map((tier) => (
-                      <button
-                        key={tier}
-                        onClick={() => setCustomSelection(prev => ({ ...prev, gestorTier: tier as any }))}
-                        className={`py-2 rounded-lg border text-sm font-bold transition-all
-                          ${customSelection.gestorTier === tier
-                            ? 'bg-yellow-500 border-yellow-500 text-black'
-                            : 'bg-white/5 border-white/5 text-zinc-400 hover:border-white/20'}`}
-                      >
-                        {tier === 0 ? 'Nenhum' : `${tier} artes`}
-                      </button>
-                    ))}
-                  </div>
-                  {customSelection.gestorTier > 0 && (
-                    <div className="mt-3 text-xs text-yellow-500/70 font-medium">
-                      R$ {UNIT_VALUES.gestor[customSelection.gestorTier as keyof typeof UNIT_VALUES.gestor]}/mês
+                {/* Gestor de Trafego Toggle */}
+                <div className={`p-6 rounded-2xl border transition-all duration-300
+                  ${customSelection.gestorEnabled
+                    ? 'bg-yellow-500/10 border-yellow-500/30'
+                    : 'bg-white/5 border-white/5 hover:border-white/20'}`}
+                >
+                  <div
+                    className="flex items-start gap-4 cursor-pointer"
+                    onClick={() => setCustomSelection(prev => ({ ...prev, gestorEnabled: !prev.gestorEnabled }))}
+                  >
+                    <div className={`mt-1 min-w-[24px] h-6 rounded-lg border flex items-center justify-center transition-colors
+                       ${customSelection.gestorEnabled
+                        ? 'bg-yellow-500 border-yellow-500 text-black'
+                        : 'border-white/20'
+                      }`}
+                    >
+                      {customSelection.gestorEnabled && <Check className="w-4 h-4" />}
                     </div>
-                  )}
+                    <div>
+                      <h4 className={`font-bold transition-colors ${customSelection.gestorEnabled ? 'text-yellow-400' : 'text-zinc-400'}`}>
+                        Gestor de tráfego (Instagram / Facebook)
+                      </h4>
+                      <p className="text-xs text-zinc-500 mt-1 italic">
+                        {customSelection.posts === 0
+                          ? "Selecione a quantidade de posts acima para ver o valor"
+                          : `Valor baseado em ${customSelection.posts} posts semanais`}
+                      </p>
+                    </div>
+                    <div className="ml-auto text-yellow-500 font-bold">
+                      R$ {getGestorPrice(customSelection.posts)}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
