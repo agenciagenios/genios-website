@@ -11,7 +11,7 @@ const UNIT_VALUES = {
   video: 150,
   landingPage: 150,
   siteEcommerce: 300,
-  googleAds: 100,
+  googleAds: 200,
   gestor: {
     3: 300,
     4: 500,
@@ -163,7 +163,8 @@ export default function PlanosContent() {
 
   const calculateTotal = () => {
     let total = 0;
-    total += customSelection.posts * UNIT_VALUES.post;
+    // Multiplication by 4 weeks as requested
+    total += (customSelection.posts * 4) * UNIT_VALUES.post;
     total += customSelection.motions * UNIT_VALUES.motion;
     total += customSelection.videos * UNIT_VALUES.video;
 
@@ -180,7 +181,7 @@ export default function PlanosContent() {
 
   const getCustomPlanName = () => {
     const parts = [];
-    if (customSelection.posts > 0) parts.push(`${customSelection.posts} posts`);
+    if (customSelection.posts > 0) parts.push(`${customSelection.posts} posts/semana (${customSelection.posts * 4} mensais)`);
     if (customSelection.motions > 0) parts.push(`${customSelection.motions} motions`);
     if (customSelection.videos > 0) parts.push(`${customSelection.videos} vídeos`);
     if (customSelection.gestorTier > 0) parts.push(`Gestor (${customSelection.gestorTier} artes)`);
@@ -355,7 +356,9 @@ export default function PlanosContent() {
                         </button>
                       </div>
                     </div>
-                    <div className="text-xs text-yellow-500/70 font-medium">R$ {item.price}/unidade</div>
+                    <div className="text-xs text-zinc-500 font-medium">
+                      R$ {item.price}/unidade {(item.id === 'posts' && customSelection.posts > 0) && ` • Total mensal: R$ ${(customSelection.posts * 4 * item.price).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`}
+                    </div>
                   </div>
                 ))}
 
