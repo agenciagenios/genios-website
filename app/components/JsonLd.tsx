@@ -11,7 +11,7 @@ export default function JsonLd() {
         email: "contato@agenciagenios.com.br",
         sameAs: [
             "https://www.instagram.com/agencia.genios",
-            // Add other social media links here if available
+            "https://www.facebook.com/agenciagenios"
         ],
     };
 
