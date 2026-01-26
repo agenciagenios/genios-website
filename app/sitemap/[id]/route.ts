@@ -22,6 +22,12 @@ export async function GET(
         urls.push(`${baseUrl}/portfolio`);
         urls.push(`${baseUrl}/sobre`);
         urls.push(`${baseUrl}/planos`);
+        urls.push(`${baseUrl}/planos/social-media`);
+        urls.push(`${baseUrl}/planos/mercado`);
+        urls.push(`${baseUrl}/planos/artes`);
+        urls.push(`${baseUrl}/planos/edicao-de-video`);
+        urls.push(`${baseUrl}/planos/programacao`);
+        urls.push(`${baseUrl}/planos/gestor-de-trafego`);
         projects.forEach((project) => {
             urls.push(`${baseUrl}/portfolio/${project.id}`);
         });
