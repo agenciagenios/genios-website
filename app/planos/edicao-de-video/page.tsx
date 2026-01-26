@@ -107,6 +107,20 @@ export default function VideoPage() {
                 title="Edição de Vídeo"
                 subtitle="Domine o algoritmo com vídeos curtos de alta retenção e qualidade profissional."
                 plans={plans}
+                faqItems={[
+                    {
+                        question: "Como envio os vídeos para edição?",
+                        answer: "Você pode enviar através do Google Drive, WeTransfer ou diretamente pelo WhatsApp, dependendo do tamanho do arquivo."
+                    },
+                    {
+                        question: "Vocês fazem a legenda dos vídeos?",
+                        answer: "Sim! Todos os nossos planos de edição incluem legendas dinâmicas e animadas para maximizar a retenção."
+                    },
+                    {
+                        question: "Qual o prazo de entrega de cada vídeo?",
+                        answer: "O prazo médio é de 24 a 48 horas úteis após o recebimento do material bruto e do briefing."
+                    }
+                ]}
                 customSection={
                     <div className="glass-card p-12 rounded-[2.5rem] border border-white/10 text-center">
                         <h2 className="text-3xl font-bold text-white mb-6">Demanda para YouTube?</h2>

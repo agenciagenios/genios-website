@@ -3,6 +3,7 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import SaaSShowcase from "./components/SaaSShowcase";
+import Stats from "./components/Stats";
 
 import { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default function Home() {
     <main className="min-h-screen bg-black">
       <Hero />
       <Services />
+      <Stats />
       <SaaSShowcase />
       <Portfolio limit={4} />
       <Contact />

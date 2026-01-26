@@ -24,7 +24,7 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-10 font-light">
             Design minimalista, tecnologia de ponta e estratégias de SEO que colocam sua marca no topo.
           </p>
-          
+
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
             <a
               href="#contato"
@@ -41,9 +41,9 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}

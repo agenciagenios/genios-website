@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, ArrowRight } from "lucide-react";
 import HirePlanModal from "./HirePlanModal";
+import FAQ from "../components/FAQ";
 
 export interface PlanFeature {
     name: string;
@@ -24,9 +25,10 @@ interface PlanosTemplateProps {
     subtitle: string;
     plans: Plan[];
     customSection?: React.ReactNode;
+    faqItems?: { question: string, answer: string }[];
 }
 
-export default function PlanosTemplate({ title, subtitle, plans, customSection }: PlanosTemplateProps) {
+export default function PlanosTemplate({ title, subtitle, plans, customSection, faqItems }: PlanosTemplateProps) {
     const [selectedPlan, setSelectedPlan] = useState<{ name: string, price: string } | null>(null);
 
     return (
@@ -90,7 +92,7 @@ export default function PlanosTemplate({ title, subtitle, plans, customSection }
                             onClick={() => setSelectedPlan({ name: plan.name, price: plan.price })}
                             className={`w-full py-4 rounded-xl font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] ${plan.highlight ? 'bg-gradient-to-r from-yellow-500 to-amber-600 shadow-lg shadow-yellow-500/20' : 'bg-white/10 hover:bg-white/20'}`}
                         >
-                            Contratar {plan.name}
+                            Quero o plano {plan.name}
                         </button>
                     </motion.div>
                 ))}
@@ -99,6 +101,12 @@ export default function PlanosTemplate({ title, subtitle, plans, customSection }
             {customSection && (
                 <div className="mt-20">
                     {customSection}
+                </div>
+            )}
+
+            {faqItems && faqItems.length > 0 && (
+                <div className="mt-20">
+                    <FAQ items={faqItems} />
                 </div>
             )}
 

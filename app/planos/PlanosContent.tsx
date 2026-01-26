@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import HirePlanModal from "./HirePlanModal";
+import FAQ from "../components/FAQ";
 
 const UNIT_VALUES = {
   post: 70,
@@ -291,7 +292,7 @@ export default function PlanosContent() {
                 onClick={() => setSelectedPlan({ name: plan.name, price: plan.price })}
                 className={`w-full py-4 rounded-xl font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] ${plan.highlight ? 'bg-gradient-to-r from-yellow-500 to-amber-600 shadow-lg shadow-yellow-500/20' : 'bg-white/10 hover:bg-white/20'}`}
               >
-                Contratar {plan.name}
+                Quero o plano {plan.name}
               </button>
             </motion.div>
           ))}
@@ -471,6 +472,25 @@ export default function PlanosContent() {
           </div>
         </motion.div>
       )}
+
+      <div className="mt-20">
+        <FAQ
+          items={[
+            {
+              question: "Qual o prazo de contrato?",
+              answer: "Nossos planos de conteúdo têm contrato mínimo de 1 mês. Planos de performance (Scale/Domination) têm contrato mínimo sugerido de 3 a 6 meses para maturação das campanhas."
+            },
+            {
+              question: "Eu preciso fornecer as fotos e vídeos?",
+              answer: "Depende do plano. No Start e Pro, utilizamos materiais enviados pelo cliente ou bancos de imagens premium. Para vídeos editados (Reels), o cliente envia o material bruto e nós fazemos a mágica da edição."
+            },
+            {
+              question: "Como funciona o investimento em anúncios?",
+              answer: "O valor do plano é para a nossa gestão estratégica. O valor investido em anúncios (Google/Meta) é pago diretamente às plataformas (ou incluso nos planos), mas nós ajudamos você a definir o melhor orçamento."
+            }
+          ]}
+        />
+      </div>
 
       {/* Common Footer */}
       <div className="mt-16 bg-white/5 rounded-3xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
